@@ -1,0 +1,73 @@
+name: Generate PDF Resume
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - '.github/workflows/generate-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install -g puppeteer
+
+      - name: Generate PDF from HTML
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+          const fs = require('fs');
+
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: 'new',
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+
+            const page = await browser.newPage();
+
+            // Read the HTML file
+            const html = fs.readFileSync('index.html', 'utf8');
+            await page.setContent(html, { waitUntil: 'networkidle0' });
+
+            // Generate PDF with proper settings
+            await page.pdf({
+              path: 'Sajja_Sasi_Resume.pdf',
+              format: 'Letter',
+              printBackground: true,
+              margin: {
+                top: '0.5in',
+                right: '0.65in',
+                bottom: '0.5in',
+                left: '0.65in'
+              }
+            });
+
+            await browser.close();
+            console.log('PDF generated successfully!');
+          })();
+          "
+
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add Sajja_Sasi_Resume.pdf
+          git diff --staged --quiet || git commit -m "🤖 Auto-generate PDF from HTML resume [skip ci]"
+          git push
