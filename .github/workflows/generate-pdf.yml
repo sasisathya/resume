@@ -25,12 +25,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install -g puppeteer
+      - name: Install Puppeteer
+        run: npm install puppeteer
 
       - name: Generate PDF from HTML
         run: |
-          node -e "
+          node << 'SCRIPT'
           const puppeteer = require('puppeteer');
           const fs = require('fs');
 
@@ -41,12 +41,9 @@ jobs:
             });
 
             const page = await browser.newPage();
-
-            // Read the HTML file
             const html = fs.readFileSync('index.html', 'utf8');
             await page.setContent(html, { waitUntil: 'networkidle0' });
 
-            // Generate PDF with proper settings
             await page.pdf({
               path: 'Sajja_Sasi_Resume.pdf',
               format: 'Letter',
@@ -62,7 +59,7 @@ jobs:
             await browser.close();
             console.log('PDF generated successfully!');
           })();
-          "
+          SCRIPT
 
       - name: Commit and push PDF
         run: |
