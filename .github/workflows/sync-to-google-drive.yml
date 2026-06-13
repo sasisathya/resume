@@ -1,0 +1,133 @@
+name: Sync Files to Google Drive
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.pdf'
+      - '*.html'
+      - '.github/workflows/sync-to-google-drive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync-to-drive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Google Drive dependencies
+        run: npm install googleapis google-auth-library dotenv
+
+      - name: Upload to Google Drive
+        run: |
+          node << 'SCRIPT'
+          const { google } = require('googleapis');
+          const fs = require('fs');
+          const path = require('path');
+
+          const CREDENTIALS = {
+            type: 'service_account',
+            project_id: process.env.GOOGLE_PROJECT_ID,
+            private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
+            private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            client_email: process.env.GOOGLE_CLIENT_EMAIL,
+            client_id: process.env.GOOGLE_CLIENT_ID,
+            auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+            token_uri: 'https://oauth2.googleapis.com/token',
+            auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
+            client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL
+          };
+
+          const DRIVE_FOLDER_ID = process.env.GOOGLE_DRIVE_FOLDER_ID;
+
+          async function uploadToDrive() {
+            try {
+              const auth = new google.auth.GoogleAuth({
+                credentials: CREDENTIALS,
+                scopes: ['https://www.googleapis.com/auth/drive']
+              });
+
+              const drive = google.drive({ version: 'v3', auth });
+
+              // Files to upload
+              const filesToUpload = [
+                'Sajja_Sasi_Resume.pdf',
+                'index.html'
+              ];
+
+              for (const fileName of filesToUpload) {
+                if (!fs.existsSync(fileName)) {
+                  console.log(`⏭️  Skipping ${fileName} - file not found`);
+                  continue;
+                }
+
+                console.log(`📤 Uploading ${fileName} to Google Drive...`);
+
+                // Check if file already exists in Drive
+                const listResponse = await drive.files.list({
+                  q: `name='${fileName}' and '${DRIVE_FOLDER_ID}' in parents and trashed=false`,
+                  spaces: 'drive',
+                  fields: 'files(id, name, modifiedTime)',
+                  pageSize: 1
+                });
+
+                const existingFile = listResponse.data.files[0];
+
+                if (existingFile) {
+                  // Update existing file
+                  console.log(`🔄 Updating existing file: ${fileName}`);
+                  await drive.files.update({
+                    fileId: existingFile.id,
+                    media: {
+                      body: fs.createReadStream(fileName)
+                    }
+                  });
+                  console.log(`✅ Updated: ${fileName}`);
+                } else {
+                  // Create new file
+                  console.log(`✨ Creating new file: ${fileName}`);
+                  const fileMetadata = {
+                    name: fileName,
+                    parents: [DRIVE_FOLDER_ID],
+                    mimeType: fileName.endsWith('.pdf') ? 'application/pdf' : 'text/html'
+                  };
+
+                  await drive.files.create({
+                    resource: fileMetadata,
+                    media: {
+                      body: fs.createReadStream(fileName)
+                    },
+                    fields: 'id'
+                  });
+                  console.log(`✅ Created: ${fileName}`);
+                }
+              }
+
+              console.log('🎉 All files synced to Google Drive!');
+            } catch (error) {
+              console.error('❌ Error uploading to Google Drive:', error.message);
+              process.exit(1);
+            }
+          }
+
+          uploadToDrive();
+          SCRIPT
+        env:
+          GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+          GOOGLE_PRIVATE_KEY_ID: ${{ secrets.GOOGLE_PRIVATE_KEY_ID }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+          GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_CLIENT_EMAIL }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_X509_CERT_URL: ${{ secrets.GOOGLE_CLIENT_X509_CERT_URL }}
+          GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
