@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Resume">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.35in 0.5in 0.35in 0.5in !important;
+            padding: 0 !important;
+            margin-header: 0 !important;
+            margin-footer: 0 !important;
+        }
+
+        @page :first {
+            margin: 0.35in 0.5in 0.35in 0.5in !important;
+        }
+
+        @media print {
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                margin: 0 auto !important;
+                padding: 0 !important;
+            }
+        }
+
+        .container {
+            width: 8.5in;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 8pt;
+            border-bottom: 1pt solid #333;
+            padding-bottom: 6pt;
+        }
+
+        .header h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 2pt;
+        }
+
+        .header .subtitle {
+            font-size: 10pt;
+            color: #333;
+            margin-bottom: 3pt;
+        }
+
+        .header .contact {
+            font-size: 9pt;
+            margin-bottom: 2pt;
+        }
+
+        .header .links {
+            font-size: 9pt;
+        }
+
+        .section {
+            margin-top: 6pt;
+            margin-bottom: 4pt;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 10pt;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1pt solid #666;
+            padding-bottom: 2pt;
+            margin-bottom: 4pt;
+        }
+
+        .job {
+            margin-bottom: 5pt;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 1pt;
+        }
+
+        .job-company {
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 1pt;
+        }
+
+        .job-date {
+            font-size: 9pt;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 18pt;
+            margin-bottom: 3pt;
+        }
+
+        li {
+            font-size: 9pt;
+            margin-bottom: 2pt;
+            color: #333;
+        }
+
+        .skill-category {
+            font-size: 9pt;
+            margin-bottom: 2pt;
+        }
+
+        .skill-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 90pt;
+        }
+
+        .skill-content {
+            display: inline;
+        }
+
+        .degree {
+            font-weight: bold;
+            font-size: 10pt;
+            margin-bottom: 1pt;
+        }
+
+        .institution {
+            font-size: 9pt;
+            color: #333;
+            margin-bottom: 1pt;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8pt;
+        }
+
+        .column {
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>SAJJA HARSHA VARDHAN</h1>
+            <div class="subtitle">Java Backend Developer | Spring Boot | REST APIs</div>
+            <div class="contact">
+                <strong>Phone:</strong> +91 7013935628 | <strong>Email:</strong> sajjaharshavardhan20@gmail.com
+            </div>
+            <div class="links">
+                <strong>LinkedIn:</strong> linkedin.com/in/harsha-vardhan-sajja-harsha-0b8b662b3 | <strong>GitHub:</strong> github.com/SajjaHarshaVardhan
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <div class="section">
+            <div class="section-title">PROFESSIONAL SUMMARY</div>
+            <p style="font-size: 9pt; margin-bottom: 3pt;">
+                Java Backend Developer with 7+ months of hands-on experience designing and deploying scalable web applications using Spring Boot, REST APIs, and MySQL. Expertise in API optimization, database design, and full-stack development. Demonstrated 30% performance improvement through architectural improvements. Proficient in SDLC methodologies, design patterns (MVC, Repository), and clean code principles.
+            </p>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="section">
+            <div class="section-title">TECHNICAL SKILLS</div>
+            <div class="skill-category">
+                <span class="skill-label"><strong>Languages:</strong></span>
+                <span class="skill-content">Java, JavaScript, C, SQL</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label"><strong>Frameworks:</strong></span>
+                <span class="skill-content">Spring Boot, Spring Data JPA, Spring MVC, Spring Security</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label"><strong>Databases:</strong></span>
+                <span class="skill-content">MySQL, JDBC, JPA, Hibernate, Query Optimization</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label"><strong>Tools/Platforms:</strong></span>
+                <span class="skill-content">Git, GitHub, Maven, IntelliJ IDEA, Postman</span>
+            </div>
+            <div class="skill-category">
+                <span class="skill-label"><strong>Competencies:</strong></span>
+                <span class="skill-content">RESTful APIs, SOLID Principles, Design Patterns, System Architecture, Testing (JUnit, Mockito)</span>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span>Java Backend Developer | PBR Visvodaya Institute</span>
+                    <span class="job-date">Aug 2023 – Present</span>
+                </div>
+                <div style="font-weight: bold; font-size: 9pt; margin-bottom: 1pt;">Employee Management System (Spring Boot CRUD)</div>
+                <ul>
+                    <li>Architected full-stack CRUD application with 12+ RESTful API endpoints; reduced API response time from 500ms to 350ms</li>
+                    <li>Designed optimized MySQL database schema with normalization and indexing; improved query performance by 25%</li>
+                    <li>Achieved 30% system performance improvement through architectural improvements and request/response compression</li>
+                    <li>Successfully handled 10,000+ concurrent requests with 99.5% uptime; implemented pagination and filtering for large datasets</li>
+                    <li>Built scalable backend architecture following MVC and Repository patterns with comprehensive error handling</li>
+                    <li>Achieved 80% code coverage through comprehensive unit testing using JUnit and Mockito</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span>Java Developer | Academic Project</span>
+                    <span class="job-date">Jul 2023 – Aug 2023</span>
+                </div>
+                <div style="font-weight: bold; font-size: 9pt; margin-bottom: 1pt;">Employee Payroll System</div>
+                <ul>
+                    <li>Designed comprehensive payroll system using OOP principles with salary calculation and tax computation</li>
+                    <li>Processed payroll for 500+ employee records with 100% accuracy; reduced calculation errors from 15% to 0%</li>
+                    <li>Applied SOLID principles and created reusable components, improving code reusability by 45%</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span>Manufacturing Intern | Dixon Technologies</span>
+                    <span class="job-date">Jun 2022 – Jan 2023</span>
+                </div>
+                <ul>
+                    <li>Performed quality inspection and assembly operations; maintained 98% quality standards with zero safety incidents</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">EDUCATION</div>
+            <div class="degree">Bachelor of Technology (B.Tech) – Electronics & Communication Engineering</div>
+            <div class="institution">PBR Visvodaya Institute of Technology and Science | Aug 2021 – May 2026 (Final Year)</div>
+            <div class="degree" style="margin-top: 2pt;">Diploma in Engineering – Electronics & Communication</div>
+            <div class="institution">Government Polytechnic | Aug 2020 – May 2023</div>
+        </div>
+
+
+        <!-- CERTIFICATIONS -->
+        <div class="section">
+            <div class="section-title">CERTIFICATIONS & CONTINUOUS LEARNING</div>
+            <ul>
+                <li><strong>Pursuing:</strong> Advanced Java Development and Spring Boot Certification</li>
+                <li><strong>Learning:</strong> Cloud Computing (AWS), Microservices Architecture, Docker, Kubernetes, Design Patterns, System Design</li>
+            </ul>
+        </div>
+
+        <!-- CORE COMPETENCIES -->
+        <div class="section">
+            <div class="section-title">CORE COMPETENCIES</div>
+            <div class="two-column">
+                <div class="column">
+                    <div style="font-weight: bold; margin-bottom: 2pt;">Backend Development</div>
+                    Java, Spring Boot, REST APIs, API Design, Database Design, Query Optimization
+                </div>
+                <div class="column">
+                    <div style="font-weight: bold; margin-bottom: 2pt;">Software Engineering</div>
+                    OOP, SOLID Principles, Design Patterns, Clean Code, System Architecture
+                </div>
+            </div>
+            <div class="two-column" style="margin-top: 2pt;">
+                <div class="column">
+                    <div style="font-weight: bold; margin-bottom: 2pt;">Database Management</div>
+                    MySQL, Database Design, Normalization, Indexing, Performance Tuning, JDBC, JPA
+                </div>
+                <div class="column">
+                    <div style="font-weight: bold; margin-bottom: 2pt;">Methodologies</div>
+                    Agile Development, SDLC, TDD, Code Review, Continuous Integration
+                </div>
+            </div>
+        </div>
+
+        <!-- ADDITIONAL INFO -->
+        <div class="section">
+            <div class="section-title">ADDITIONAL INFORMATION</div>
+            <ul>
+                <li><strong>Languages:</strong> English (Fluent)</li>
+                <li><strong>Professional Presence:</strong> GitHub: github.com/SajjaHarshaVardhan | LinkedIn: linkedin.com/in/harsha-vardhan-sajja-harsha-0b8b662b3 | Portfolio: sajja-harshavardhan.lovable.app</li>
+                <li><strong>Professional Goals:</strong> Secure Java Backend Developer role to apply technical expertise in building scalable web applications and develop expertise in cloud technologies and microservices</li>
+                <li><strong>References:</strong> Available upon request</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
