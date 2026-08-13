@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasi Sathya - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+            color: #333;
+            background: #fff;
+        }
+
+        .page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.06in;
+            padding-bottom: 0.01in;
+        }
+
+        .header-left h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+            color: #000;
+            line-height: 1;
+        }
+
+        .header-left .title {
+            font-size: 18px;
+            color: #666;
+            margin: 4px 0 6px 0;
+        }
+
+        .header-left .contact-info {
+            font-size: 10px;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .header-left .contact-info a {
+            color: #6699ff;
+            text-decoration: none;
+            display: inline;
+            align-items: center;
+        }
+
+        .header-left .contact-info .icon {
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+            vertical-align: middle;
+            fill: #666;
+            display: inline-block;
+        }
+
+        .header-left .contact-info a .icon {
+            fill: #6699ff;
+        }
+
+        .profile-photo {
+            width: 1.1in;
+            height: 1.2in;
+            border: 2px solid #999;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 0.25in;
+        }
+
+        .left-column {
+            flex: 1;
+        }
+
+        .right-column {
+            width: 2.2in;
+            font-size: 10px;
+        }
+
+        .section {
+            margin-bottom: 0.08in;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            background-color: transparent;
+            padding: 3px 0 5px 0;
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 0.15em;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #999;
+        }
+
+        .summary-text {
+            font-size: 10px;
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: 0.1in;
+        }
+
+        .job {
+            margin-bottom: 0.1in;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1px;
+        }
+
+        .job-title {
+            font-size: 10px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .job-period {
+            font-size: 9px;
+            color: #666;
+        }
+
+        .job-company {
+            font-size: 9px;
+            color: #6699ff;
+            font-style: italic;
+            margin: 1px 0 3px 0;
+        }
+
+        .job-description ul {
+            list-style: none;
+            font-size: 9px;
+            line-height: 1.3;
+            padding-left: 0.15in;
+            margin: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 2px;
+            position: relative;
+            padding-left: 0.1in;
+        }
+
+        .job-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-item {
+            font-size: 9px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .skills-item strong {
+            font-weight: bold;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1px;
+        }
+
+        .education-item {
+            font-size: 9px;
+            margin-bottom: 0.08in;
+            line-height: 1.3;
+        }
+
+        .education-title {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .education-subtitle {
+            margin: 1px 0;
+            color: #666;
+        }
+
+        .achievement-item {
+            font-size: 9px;
+            margin-bottom: 3px;
+            line-height: 1.2;
+            position: relative;
+            padding-left: 0.12in;
+        }
+
+        .achievement-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        .divider {
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 0.5in;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @page {
+            margin: 0;
+            padding: 0;
+            size: A4;
+        }
+
+        @page :first {
+            margin: 0;
+        }
+
+        @page :left {
+            margin: 0;
+        }
+
+        @page :right {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-left">
+                <h1>SASI SATHYA</h1>
+                <div class="title">Software Engineer III</div>
+                <div class="contact-info">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3m0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22"/></svg> Bangalore | <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> +91 7013001336 | <a href="mailto:sasisathya.sajja@gmail.com"><svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> sasisathya.sajja@gmail.com</a><br>
+                    <a href="https://linkedin.com/in/sasi-sajja"><svg class="icon" viewBox="0 0 24 24"><circle cx="4.5" cy="4.5" r="1.5"/><path d="M3 7h3v12H3zM8 7h3v1.84c.86-1.28 2.35-1.84 3.8-1.84 2.85 0 5.2 1.74 5.2 5.51V19h-3v-4.65c0-1.5-.61-2.38-1.75-2.38-1.26 0-2.25.84-2.25 2.38V19H8z"/></svg> linkedin.com/in/sasi-sajja</a> | <a href="https://sajja-sasi.lovable.app"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> sajja-sasi.lovable.app</a>
+                </div>
+            </div>
+            <div class="profile-photo">
+                <img src="profile_photo.jpg" alt="Profile Photo">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Summary -->
+                <div class="section">
+                    <div class="section-title">Summary</div>
+                    <div class="summary-text">
+                        8+ years full-stack engineer expert in Java Spring Boot microservices (5+ years) and Node.js backend. Led architectural transformations: Node.js→Java/Kotlin, AWS→GCP, Pub/Sub→Kafka. Architected 12+ microservices handling billions of users with 99.95% uptime. Proven leader mentoring 5+ engineers, improving team velocity 25% and code quality 40%.
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Senior Software Engineer</div>
+                            <div class="job-period">Jan 2022 – Present</div>
+                        </div>
+                        <div class="job-company">Ultimate Kronos Group (UKG), Bangalore, India</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Architected and implemented CSR (Customer Session Resource) session management service handling billions of concurrent user sessions with 99.95% availability on GCP.</li>
+                                <li>Designed and built comprehensive file management system supporting multi-terabyte storage, file versioning, access control, and real-time synchronization across distributed systems.</li>
+                                <li>Led migration of Node.js microservices to Java Spring Boot and Kotlin-based services improving performance by 40%, reducing memory footprint by 35% with distributed caching and database sharding.</li>
+                                <li>Migrated messaging infrastructure from Google Pub/Sub (Node.js) to Apache Kafka (Java) improving throughput by 50% and reducing message latency with better partitioning strategies.</li>
+                                <li>Improved API performance through Redis caching, query optimization, and database indexing reducing response times by 20% and latency by 35%.</li>
+                                <li>Led and mentored development team of 5+ engineers, established architectural standards and best practices, improving team velocity by 25% and code quality by 40%.</li>
+                                <li>Maintained 99.5%+ uptime across all mission-critical services with real-time issue resolution and proactive performance monitoring.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Associate Software Engineer</div>
+                            <div class="job-period">Dec 2020 – Jan 2022</div>
+                        </div>
+                        <div class="job-company">Pramati Software Private Limited (Acquired by UKG), Bangalore, India</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed and optimized Node.js APIs for Groupe.io communication platform leveraging microservices architecture with distributed data processing and high throughput.</li>
+                                <li>Implemented micro frontend architecture enabling independent deployment and scaling of UI components with isolated state management and modular frontend development.</li>
+                                <li>Made critical architectural decisions optimizing entire project infrastructure for scalability, performance, and maintainability across distributed systems.</li>
+                                <li>Led migration of entire project from AWS services to Google Cloud Platform (GCP) ensuring zero-downtime migration, optimized costs, and improved performance with GCP-native services.</li>
+                                <li>Created comprehensive ELK stack monitoring dashboards for real-time analytics and observability across microservices, enhancing decision-making and reducing debugging time.</li>
+                                <li>Automated task creation processes using message queues and event-driven architecture, reducing manual intervention by 30% and improving operational efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Full Stack Developer</div>
+                            <div class="job-period">Feb 2020 – Dec 2020</div>
+                        </div>
+                        <div class="job-company">Way2mint Services, Bangalore, India</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed messaging infrastructure for MJLifeSpaces and Way2mint applications handling millions of concurrent users with fast message delivery and real-time processing.</li>
+                                <li>Built data filtering and validation scripts to extract unique mobile numbers and emails, with comprehensive email and phone validation ensuring 99%+ data quality.</li>
+                                <li>Created promotional message dashboard with Excel-based bulk upload, lazy loading, and data mapping capabilities enabling users to send static and dynamic SMS/email campaigns.</li>
+                                <li>Implemented Excel generation and report formatting similar to Excel operations, allowing users to upload, map, and generate formatted reports for analysis and segmentation.</li>
+                                <li>Designed and optimized architecture for heavy bulk messaging operations with tech stack improvements, supporting millions of users with minimal latency and high throughput.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Software Engineer</div>
+                            <div class="job-period">Jan 2018 – Jan 2020</div>
+                        </div>
+                        <div class="job-company">Hidden Brains InfoTech, Ahmedabad, India</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed admin dashboards for MRS Inventory with comprehensive multi-chart analytics including real-time data visualization and performance metrics.</li>
+                                <li>Built activity log analytics system tracking user actions per minute with detailed user behavior tracking across dashboard sections showing what users did at each specific time and location.</li>
+                                <li>Created reusable analytics library for activity tracking, user session management, and behavior analytics that became a core feature for all HB products and applications.</li>
+                                <li>Designed and implemented keyboard shortcuts system for admin dashboard (desktop-only) built as a library, improving admin productivity and adopted across all company applications.</li>
+                                <li>Integrated Memcached caching layer, reducing database query time by 30% and improving application throughput for high-traffic admin operations.</li>
+                                <li>Built multilingual email notification system for complex stock transactions and delivery logistics handling critical business operations reliably.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Skills -->
+                <div class="section">
+                    <div class="section-title">Skills</div>
+                    <div class="skills-item">
+                        <strong>Languages:</strong>
+                        Java, JavaScript, TypeScript, Node.js, Kotlin
+                    </div>
+                    <div class="skills-item">
+                        <strong>Backend & Microservices:</strong>
+                        Spring Boot, Spring Cloud, Microservices, REST APIs, GraphQL, Event-driven architecture
+                    </div>
+                    <div class="skills-item">
+                        <strong>Messaging & Streaming:</strong>
+                        Apache Kafka, Google Pub/Sub, Message Queues
+                    </div>
+                    <div class="skills-item">
+                        <strong>Databases:</strong>
+                        MySQL, MongoDB, Elasticsearch, Redis, Query Optimization
+                    </div>
+                    <div class="skills-item">
+                        <strong>Cloud Platforms:</strong>
+                        Google Cloud Platform (GCP), AWS, Kubernetes, Docker
+                    </div>
+                    <div class="skills-item">
+                        <strong>DevOps & CI/CD:</strong>
+                        Jenkins, GitHub Actions, GitLab CI, Git
+                    </div>
+                    <div class="skills-item">
+                        <strong>Monitoring & Logging:</strong>
+                        ELK Stack, Prometheus, Grafana, Splunk, Datadog
+                    </div>
+                    <div class="skills-item">
+                        <strong>Frontend:</strong>
+                        React.js, Redux, Node.js APIs
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Education -->
+                <div class="section">
+                    <div class="section-title">Education</div>
+                    <div class="education-item">
+                        <div class="education-title">B.Tech - Electronics & Communication Engineering</div>
+                        <div class="education-subtitle">JNTUA Ananthapur</div>
+                        <div class="education-subtitle">2014 – 2018 | 80%</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-title">Higher Secondary</div>
+                        <div class="education-subtitle">Narayana Junior College</div>
+                        <div class="education-subtitle">2012 – 2014 | 95%</div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Achievements -->
+                <div class="section">
+                    <div class="section-title">Achievements</div>
+                    <div class="achievement-item">8x "Star of Sprint" award at UKG for technical excellence and delivery</div>
+                    <div class="achievement-item">Architected 12+ microservices handling billions of concurrent users with 99.95% availability</div>
+                    <div class="achievement-item">Reduced deployment time from 4 hours to 45 minutes with automated CI/CD pipelines (80% failure reduction)</div>
+                    <div class="achievement-item">Mentored 5+ engineers establishing 20+ architectural design standards and best practices</div>
+                    <div class="achievement-item">Improved team velocity by 25% and code quality by 40% through code reviews and standards</div>
+                    <div class="achievement-item">Achieved 85%+ code coverage with JUnit across all microservices</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
